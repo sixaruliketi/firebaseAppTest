@@ -7,4 +7,7 @@
     <string name="sign_up">Sign up</string>
     <string name="repeat_your_password">repeat your password</string>
     <string name="already_have_account_login">already have account? login</string>
+    <string name="forgot_password">forgot password?</string>
+    <string name="forgot_password_title">Forgot password</string>
+    <string name="send_password">send password</string>
 </resources>
