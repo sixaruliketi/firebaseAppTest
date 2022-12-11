@@ -3,4 +3,8 @@
     <string name="enter_your_password">enter your password</string>
     <string name="enter_your_email">enter your email</string>
     <string name="login">Login</string>
+    <string name="don_t_have_account_sign_up">don\'t have account? sign up</string>
+    <string name="sign_up">Sign up</string>
+    <string name="repeat_your_password">repeat your password</string>
+    <string name="already_have_account_login">already have account? login</string>
 </resources>
