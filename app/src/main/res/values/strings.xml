@@ -10,4 +10,8 @@
     <string name="forgot_password">forgot password?</string>
     <string name="forgot_password_title">Forgot password</string>
     <string name="send_password">send password</string>
+    <string name="username">username</string>
+    <string name="log_out">log out</string>
+    <string name="change_password">change password</string>
+    <string name="to_change_your_avatar_enter_url_here">to change your avatar enter url here</string>
 </resources>
