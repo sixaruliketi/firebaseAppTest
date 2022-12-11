@@ -3,6 +3,7 @@ package com.example.myapplication
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.InputType
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
@@ -26,6 +27,9 @@ class ChangePasswordActivity : AppCompatActivity() {
     private fun changePasswordListeners() {
         changePasswordGoBackButton.setOnClickListener {
             goToProfile()
+        }
+        changePasswordNewPasswordEditText.setOnClickListener {
+            changePasswordNewPasswordEditText.inputType = InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
         }
         changePasswordButton.setOnClickListener {
             val currentPassword = changePasswordCurrentPasswordEditText.text.toString()

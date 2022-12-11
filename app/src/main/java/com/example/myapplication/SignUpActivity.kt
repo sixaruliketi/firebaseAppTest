@@ -3,6 +3,7 @@ package com.example.myapplication
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.InputType
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
@@ -29,6 +30,12 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private fun signupListeners() {
+        signupPasswordEditText.setOnClickListener {
+            signupPasswordEditText.inputType = InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+        }
+        signupRepeatPasswordEditText.setOnClickListener {
+            signupRepeatPasswordEditText.inputType = InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+        }
         signupButton.setOnClickListener {
             val email = signupEmailEditText.text.toString()
             val password = signupPasswordEditText.text.toString()

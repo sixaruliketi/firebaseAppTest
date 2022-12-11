@@ -34,10 +34,13 @@
         android:src="@drawable/ic_edit"
         app:layout_constraintEnd_toEndOf="@+id/profileImageView"
         app:layout_constraintTop_toTopOf="@id/profileImageView"
+        app:layout_constraintStart_toEndOf="@id/profileImageView"
+        app:layout_constraintBottom_toTopOf="@id/profileImageView"
         android:background="@drawable/button_bg"
         android:padding="5dp"/>
 
     <EditText
+        android:id="@+id/avatarUrlEditText"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/profile_image_bg"
@@ -50,6 +53,17 @@
         app:layout_constraintTop_toBottomOf="@id/profileImageView"
         app:layout_constraintBottom_toTopOf="@+id/profileChangeProfileAvatarButton"/>
 
+    <ImageView
+        android:id="@+id/profileCloseUrlButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_close"
+        android:background="@drawable/button_bg"
+        android:padding="3dp"
+        app:layout_constraintEnd_toEndOf="@+id/avatarUrlEditText"
+        app:layout_constraintStart_toEndOf="@+id/avatarUrlEditText"
+        app:layout_constraintTop_toTopOf="@id/avatarUrlEditText"
+        app:layout_constraintBottom_toTopOf="@id/avatarUrlEditText"/>
 
     <TextView
         android:id="@+id/profileChangeProfileAvatarButton"

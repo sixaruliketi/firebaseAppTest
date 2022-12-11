@@ -3,6 +3,7 @@ package com.example.myapplication
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.InputType
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
@@ -18,6 +19,7 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var loginForgotPassword: TextView
     private val firebaseAuth = Firebase.auth
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -26,6 +28,11 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun loginListeners() {
+
+        loginPasswordEditText.setOnClickListener {
+            loginPasswordEditText.inputType = InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+        }
+
         loginButton.setOnClickListener {
             val email = loginEmailEditText.text.toString()
             val password = loginPasswordEditText.text.toString()
