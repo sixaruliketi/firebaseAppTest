@@ -14,4 +14,7 @@
     <string name="log_out">log out</string>
     <string name="change_password">change password</string>
     <string name="to_change_your_avatar_enter_url_here">to change your avatar enter url here</string>
+    <string name="enter_your_current_password">enter your current password</string>
+    <string name="enter_new_password">enter new password</string>
+    <string name="change_avatar">change avatar</string>
 </resources>
