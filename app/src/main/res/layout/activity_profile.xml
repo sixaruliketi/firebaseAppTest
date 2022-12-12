@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/profileConstraint"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ProfileActivity">
@@ -19,103 +20,70 @@
 
     <TextView
         android:id="@+id/profileUsernameTextView"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
         android:text="user id"
-        app:layout_constraintStart_toEndOf="@+id/profileImageView"
+        app:layout_constraintBottom_toBottomOf="@+id/profileImageView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/profileImageView"
-        app:layout_constraintBottom_toBottomOf="@+id/profileImageView"/>
-
-    <TextView
-        android:id="@+id/profileSeeMoreButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/see_more"
-        android:background="@drawable/button_bg"
-        android:layout_marginEnd="20dp"
-        android:paddingVertical="10dp"
-        android:paddingHorizontal="20dp"
-        app:layout_constraintBottom_toBottomOf="@id/profileImageView"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <ImageView
-        android:id="@+id/profileEditImageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_edit"
-        app:layout_constraintEnd_toEndOf="@+id/profileImageView"
-        app:layout_constraintTop_toTopOf="@id/profileImageView"
-        app:layout_constraintStart_toEndOf="@id/profileImageView"
-        app:layout_constraintBottom_toTopOf="@id/profileImageView"
-        android:background="@drawable/button_bg"
-        android:padding="5dp"/>
+        app:layout_constraintStart_toEndOf="@+id/profileImageView"
+        app:layout_constraintTop_toTopOf="@+id/profileImageView" />
 
     <EditText
-        android:id="@+id/avatarUrlEditText"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@drawable/profile_image_bg"
-        android:hint="@string/to_change_your_avatar_enter_url_here"
-        android:layout_marginVertical="40dp"
-        android:padding="20dp"
-        android:visibility="gone"
-        app:layout_constraintStart_toStartOf="@id/profileChangePasswordButton"
-        app:layout_constraintEnd_toEndOf="@+id/profileChangePasswordButton"
-        app:layout_constraintTop_toBottomOf="@id/profileImageView"
-        app:layout_constraintBottom_toTopOf="@+id/profileChangeProfileAvatarButton"/>
-
-    <ImageView
-        android:id="@+id/profileCloseUrlButton"
-        android:layout_width="wrap_content"
+        android:id="@+id/urlEditText"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_close"
-        android:background="@drawable/button_bg"
-        android:padding="3dp"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="@+id/avatarUrlEditText"
-        app:layout_constraintStart_toEndOf="@+id/avatarUrlEditText"
-        app:layout_constraintTop_toTopOf="@id/avatarUrlEditText"
-        app:layout_constraintBottom_toTopOf="@id/avatarUrlEditText"/>
+        android:hint="@string/to_change_your_avatar_enter_url_here"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profileImageView" />
 
+    <EditText
+        android:id="@+id/userNameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="enter username"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/urlEditText" />
     <TextView
         android:id="@+id/profileChangeProfileAvatarButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/change_avatar"
-        android:textAlignment="center"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/button_bg"
         android:paddingVertical="10dp"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintStart_toStartOf="@id/profileChangePasswordButton"
+        android:text="@string/change_avatar"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@id/profileChangePasswordButton"
         app:layout_constraintEnd_toEndOf="@id/profileChangePasswordButton"
-        app:layout_constraintBottom_toTopOf="@id/profileChangePasswordButton"/>
+        app:layout_constraintStart_toStartOf="@id/profileChangePasswordButton" />
 
     <TextView
         android:id="@+id/profileLogOutButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/log_out"
-        android:textAlignment="center"
-        android:background="@drawable/button_bg"
-        android:paddingVertical="10dp"
         android:layout_marginHorizontal="40dp"
         android:layout_marginBottom="40dp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/button_bg"
+        android:paddingVertical="10dp"
+        android:text="@string/log_out"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/profileChangePasswordButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/change_password"
-        android:textAlignment="center"
-        android:background="@drawable/button_bg"
-        android:paddingVertical="10dp"
         android:layout_marginHorizontal="40dp"
         android:layout_marginBottom="20dp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/button_bg"
+        android:paddingVertical="10dp"
+        android:text="@string/change_password"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@id/profileLogOutButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/profileLogOutButton"/>
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

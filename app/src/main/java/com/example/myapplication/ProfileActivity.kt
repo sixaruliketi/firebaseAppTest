@@ -10,8 +10,15 @@ import android.view.View.VISIBLE
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import com.bumptech.glide.Glide
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.UserInfo
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.ktx.Firebase
 
 
@@ -26,29 +33,43 @@ class ProfileActivity : AppCompatActivity() {
     private lateinit var profileImageView : ImageView
     private lateinit var profileChangeProfileAvatarButton : TextView
     private lateinit var profileCloseUrlButton: ImageView
+    lateinit var urlEditText :EditText
+    lateinit var usernameEditText:EditText
+
+    private val db = FirebaseDatabase.getInstance().getReference("userInfo")
+    private val auth = FirebaseAuth.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
         init()
         profileListeners()
+
+        urlEditText = findViewById(R.id.urlEditText)
+        usernameEditText=findViewById(R.id.userNameEditText)
+
+        db.child(auth.currentUser?.uid!!).addValueEventListener(object : ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val userInfo : User = snapshot.getValue(User::class.java) ?: return
+                profileUsernameTextView.text = userInfo.name
+                Glide.with(this@ProfileActivity).load(userInfo.url).into(profileImageView)
+
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+            }
+
+        })
+
     }
 
     private fun profileListeners() {
 
-        profileEditImageButton.setOnClickListener {
-            avatarUrlEditText.visibility = VISIBLE
-            profileCloseUrlButton.visibility = VISIBLE
-        }
-
-        profileCloseUrlButton.setOnClickListener {
-            avatarUrlEditText.visibility = INVISIBLE
-            profileCloseUrlButton.visibility = INVISIBLE
-        }
-
         profileChangeProfileAvatarButton.setOnClickListener {
-            val url = avatarUrlEditText.text.toString()
-            Glide.with(applicationContext).load(url).into(profileImageView)
+            val name = usernameEditText.text.toString()
+            val url = urlEditText.text.toString()
+            val userInfo = User(name,url)
+            db.child(auth.currentUser?.uid!!).setValue(userInfo)
         }
 
         profileLogOutButton.setOnClickListener {
@@ -64,12 +85,8 @@ class ProfileActivity : AppCompatActivity() {
     private fun init(){
         profileLogOutButton = findViewById(R.id.profileLogOutButton)
         profileChangePasswordButton = findViewById(R.id.profileChangePasswordButton)
-        profileEditImageButton = findViewById(R.id.profileEditImageButton)
         profileImageView = findViewById(R.id.profileImageView)
-        avatarUrlEditText = findViewById(R.id.avatarUrlEditText)
         profileChangeProfileAvatarButton = findViewById(R.id.profileChangeProfileAvatarButton)
-        profileCloseUrlButton = findViewById(R.id.profileCloseUrlButton)
         profileUsernameTextView = findViewById(R.id.profileUsernameTextView)
-        profileUsernameTextView.text = firebaseAuth.currentUser?.uid
     }
 }
