@@ -19,6 +19,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
 
 
@@ -28,11 +29,8 @@ class ProfileActivity : AppCompatActivity() {
     private val firebaseAuth = Firebase.auth
 
     private lateinit var profileUsernameTextView : TextView
-    private lateinit var profileEditImageButton: ImageView
-    private lateinit var avatarUrlEditText: EditText
     private lateinit var profileImageView : ImageView
     private lateinit var profileChangeProfileAvatarButton : TextView
-    private lateinit var profileCloseUrlButton: ImageView
     lateinit var urlEditText :EditText
     lateinit var usernameEditText:EditText
 
@@ -45,30 +43,29 @@ class ProfileActivity : AppCompatActivity() {
         init()
         profileListeners()
 
-        urlEditText = findViewById(R.id.urlEditText)
-        usernameEditText=findViewById(R.id.userNameEditText)
-
-        db.child(auth.currentUser?.uid!!).addValueEventListener(object : ValueEventListener{
+        db.child(auth.currentUser?.uid!!).addValueEventListener(object :ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 val userInfo : User = snapshot.getValue(User::class.java) ?: return
-                profileUsernameTextView.text = userInfo.name
+                profileUsernameTextView.text = userInfo.username
                 Glide.with(this@ProfileActivity).load(userInfo.url).into(profileImageView)
-
             }
 
             override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
             }
 
         })
+
+
 
     }
 
     private fun profileListeners() {
 
         profileChangeProfileAvatarButton.setOnClickListener {
-            val name = usernameEditText.text.toString()
             val url = urlEditText.text.toString()
-            val userInfo = User(name,url)
+            val username = usernameEditText.text.toString()
+            val userInfo = User(username,url)
             db.child(auth.currentUser?.uid!!).setValue(userInfo)
         }
 
@@ -88,5 +85,9 @@ class ProfileActivity : AppCompatActivity() {
         profileImageView = findViewById(R.id.profileImageView)
         profileChangeProfileAvatarButton = findViewById(R.id.profileChangeProfileAvatarButton)
         profileUsernameTextView = findViewById(R.id.profileUsernameTextView)
+
+        urlEditText = findViewById(R.id.urlEditText)
+        usernameEditText=findViewById(R.id.userNameEditText)
+
     }
 }

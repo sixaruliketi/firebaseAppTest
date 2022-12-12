@@ -19,7 +19,6 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var loginForgotPassword: TextView
     private val firebaseAuth = Firebase.auth
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
