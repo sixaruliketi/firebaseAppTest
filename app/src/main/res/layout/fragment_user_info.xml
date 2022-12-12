@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".UserInfoFragment">
+
+    <TextView
+        android:id="@+id/userInfoTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="User Info"
+        android:textSize="30sp"
+        android:fontFamily="serif-monospace"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:id="@+id/goBackButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:src="@drawable/ic_go_back_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/userInfoTitle" />
+
+
+    <ImageView
+        android:id="@+id/userImageView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userInfoTitle"
+        tools:src="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/userInfoName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="name"
+        android:fontFamily="monospace"
+        android:textSize="23sp"
+        android:layout_margin="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userImageView" />
+
+    <TextView
+        android:id="@+id/userInfoLastName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:fontFamily="monospace"
+        android:text="lastname"
+        android:textSize="23sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userInfoName"/>
+
+    <TextView
+        android:id="@+id/userInfoAge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:fontFamily="monospace"
+        android:text="age"
+        android:textSize="23sp"
+        app:layout_constraintTop_toBottomOf="@+id/userInfoLastName"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+
+    <TextView
+        android:id="@+id/userInfoId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:fontFamily="monospace"
+        android:text="UID"
+        android:textSize="23sp"
+        app:layout_constraintTop_toBottomOf="@id/userInfoAge"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

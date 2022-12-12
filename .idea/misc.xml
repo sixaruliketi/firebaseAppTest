@@ -4,8 +4,14 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/HP/AndroidStudioProjects/MyApplication23/app/src/main/res/drawable/button_bg.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/MyApplication23/app/src/main/res/drawable/profile_image_bg.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/MyApplication23/app/src/main/res/layout/activity_change_password.xml" value="0.18781725888324874" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/MyApplication23/app/src/main/res/layout/activity_forgot_password.xml" value="0.2" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/MyApplication23/app/src/main/res/layout/activity_login.xml" value="0.176" />
-        <entry key="..\:/Users/HP/AndroidStudioProjects/MyApplication23/app/src/main/res/layout/activity_sign_up.xml" value="0.12295081967213115" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/MyApplication23/app/src/main/res/layout/activity_profile.xml" value="0.16" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/MyApplication23/app/src/main/res/layout/activity_sign_up.xml" value="0.2" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/MyApplication23/app/src/main/res/layout/fragment_user_info.xml" value="0.2265625" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/MyApplication23/app/src/main/res/layout/user_info_item.xml" value="0.22552083333333334" />
       </map>
     </option>
   </component>
