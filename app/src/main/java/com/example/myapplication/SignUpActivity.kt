@@ -46,7 +46,8 @@ class SignUpActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            if (email.isEmpty() || password.isEmpty()){
+            if (email.isEmpty() || password.isEmpty()
+                || password.length < 7 || password.contains(' ')){
                 return@setOnClickListener
             }
 

@@ -1,27 +1,20 @@
 package com.example.myapplication
 
 import android.content.Intent
-import android.media.Image
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.service.voice.VoiceInteractionSession
-import android.view.View.INVISIBLE
-import android.view.View.VISIBLE
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.UserInfo
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
-
 
 class ProfileActivity : AppCompatActivity() {
     private lateinit var profileLogOutButton : TextView
@@ -44,6 +37,7 @@ class ProfileActivity : AppCompatActivity() {
         profileListeners()
 
         db.child(auth.currentUser?.uid!!).addValueEventListener(object :ValueEventListener{
+
             override fun onDataChange(snapshot: DataSnapshot) {
                 val userInfo : User = snapshot.getValue(User::class.java) ?: return
                 profileUsernameTextView.text = userInfo.username
@@ -51,7 +45,7 @@ class ProfileActivity : AppCompatActivity() {
             }
 
             override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
+                Toast.makeText(this@ProfileActivity, "cancelled", Toast.LENGTH_SHORT).show()
             }
 
         })
@@ -62,10 +56,15 @@ class ProfileActivity : AppCompatActivity() {
 
     private fun profileListeners() {
 
+//        profileChangeProfileAvatarButton.setOnClickListener {
+//            val url = urlEditText.text.toString()
+//            Glide.with(this).load(url).into(profileImageView)
+//        }
+
         profileChangeProfileAvatarButton.setOnClickListener {
             val url = urlEditText.text.toString()
             val username = usernameEditText.text.toString()
-            val userInfo = User(username,url)
+            val userInfo = User(username, url)
             db.child(auth.currentUser?.uid!!).setValue(userInfo)
         }
 
